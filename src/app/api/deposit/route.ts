@@ -6,15 +6,17 @@ import {
 import axios from "axios"
 import { NextRequest, NextResponse } from "next/server"
 
-async function getResponse(req: NextRequest): Promise<NextResponse> {
+async function getResponse(
+  req: NextRequest
+): Promise<NextResponse | undefined> {
   const body: FrameRequest = await req.json()
   const { untrustedData } = body
-  // const { isValid, message } = await getFrameMessage(body)
-
+  const { isValid, message } = await getFrameMessage(body)
+  let OWNER_ADDRESS = message?.interactor.verified_accounts[0]
   let res = (
     await axios.get(
       `https://shorts-performances-resolution-tgp.trycloudflare.com
-/v1/account/${process.env.OWNER_ADDRESS}`
+/v1/account/${OWNER_ADDRESS}`
     )
   ).data
 
@@ -27,7 +29,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       let res = (
         await axios.post(
           `https://shorts-performances-resolution-tgp.trycloudflare.com
-/v1/account/trade/${process.env.OWNER_ADDRESS}?amount=${amount}&token=${process.env.TOKEN}`
+/v1/account/trade/${OWNER_ADDRESS}?amount=${amount}&token=${process.env.TOKEN}`
         )
       ).data
 
@@ -111,7 +113,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   }
 }
 
-export async function POST(req: NextRequest): Promise<Response> {
+export async function POST(req: NextRequest): Promise<Response | undefined> {
   return getResponse(req)
 }
 
