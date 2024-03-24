@@ -9,19 +9,17 @@ const frameMetadata = getFrameMetadata({
     },
   ],
   image: {
-    src: `https://d8e6-2406-7400-94-672c-984a-bd2-4f70-68dc.ngrok-free.app/FRAMECOINER.png`,
+    src: `${process.env.NEXT_PUBLIC_SITE_URL}/FRAMECOINER.png`,
   },
 
-  postUrl: `https://d8e6-2406-7400-94-672c-984a-bd2-4f70-68dc.ngrok-free.app/api/deposit`,
+  postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/deposit`,
 })
 
 export const metadata: Metadata = {
   title: "Deposit Frame",
   openGraph: {
     title: "Deposit Frame",
-    images: [
-      `https://d8e6-2406-7400-94-672c-984a-bd2-4f70-68dc.ngrok-free.app/FRAMECOINER.png`,
-    ],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/FRAMECOINER.png`],
   },
   other: {
     ...frameMetadata,

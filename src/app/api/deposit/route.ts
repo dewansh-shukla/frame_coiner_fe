@@ -41,10 +41,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
             },
           ],
           image: {
-            src: `https://d8e6-2406-7400-94-672c-984a-bd2-4f70-68dc.ngrok-free.app/og?${searchParams}`,
+            src: `${process.env.NEXT_PUBLIC_SITE_URL}/og?${searchParams}`,
           },
 
-          postUrl: `https://d8e6-2406-7400-94-672c-984a-bd2-4f70-68dc.ngrok-free.app/api/buy`,
+          postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/buy`,
         })
       )
     } else if (untrustedData.buttonIndex === 1) {
@@ -79,12 +79,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
             },
           ],
           image: {
-            src: `https://d8e6-2406-7400-94-672c-984a-bd2-4f70-68dc.ngrok-free.app/og?${searchParams}`,
+            src: `${process.env.NEXT_PUBLIC_SITE_URL}/og?${searchParams}`,
           },
           input: {
             text: "Amount",
           },
-          postUrl: `https://d8e6-2406-7400-94-672c-984a-bd2-4f70-68dc.ngrok-free.app/api/deposit`,
+          postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/deposit`,
         })
       )
     }
@@ -103,9 +103,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
           },
         ],
         image: {
-          src: `https://d8e6-2406-7400-94-672c-984a-bd2-4f70-68dc.ngrok-free.app/og?${searchParams}`,
+          src: `${process.env.NEXT_PUBLIC_SITE_URL}/og?${searchParams}`,
         },
-        postUrl: `https://d8e6-2406-7400-94-672c-984a-bd2-4f70-68dc.ngrok-free.app/api/deposit`,
+        postUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/api/deposit`,
       })
     )
   }
