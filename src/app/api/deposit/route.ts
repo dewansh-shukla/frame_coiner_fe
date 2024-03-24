@@ -27,11 +27,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       let res = (
         await axios.post(
           `https://shorts-performances-resolution-tgp.trycloudflare.com
-/v1/account/trade/${process.env.OWNER_ADDRESS}?amount=${amount}&token=0x833589fcd6edb6e08f4c7c32d4f71b54bda02913`
+/v1/account/trade/${process.env.OWNER_ADDRESS}?amount=${amount}&token=${process.env.TOKEN}`
         )
       ).data
 
-      console.log("res ===========", res)
       searchParams.set("title", "Trade Placed Successfully! 🎉")
       searchParams.set("description", "Please refresh to view status")
       return new NextResponse(
@@ -49,12 +48,21 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         })
       )
     } else if (untrustedData.buttonIndex === 1) {
-      let metaData =
-        axios.get(`https://shorts-performances-resolution-tgp.trycloudflare.com/v1/metadata/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913
-`)
+      let metaData = (
+        await axios.get(
+          `https://shorts-performances-resolution-tgp.trycloudflare.com/v1/metadata/${process.env.TOKEN}`
+        )
+      ).data
+      searchParams.set("title", "👾👾👾")
+      searchParams.set(
+        "description",
+        `      💵 Token: ${metaData.ticker as string}
+        
+        \n \n \n \n \n\n\n\n
+         
+         📈 Price: $${metaData.price}`
+      )
 
-      searchParams.set("title", "👾 FRAMECOINER")
-      searchParams.set("description", ``)
       return new NextResponse(
         getFrameHtmlResponse({
           buttons: [
@@ -64,7 +72,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
             {
               action: "link",
               label: "View Account",
-              target: "https://blastscan.io",
+              target: `https://basescan.org/address/${res.account}`,
             },
             {
               label: "Buy",

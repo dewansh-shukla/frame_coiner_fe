@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { ImageResponse } from "next/og"
 // App router includes @vercel/og.
 // No need to install it.
@@ -33,7 +34,8 @@ export async function GET(request: Request) {
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
-            backgroundImage: "linear-gradient(to bottom, #030304, #402e2e)",
+            backgroundImage:
+              "linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0))",
             fontSize: 80,
             fontWeight: 700,
             textAlign: "center",
