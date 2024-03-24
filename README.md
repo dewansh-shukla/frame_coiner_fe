@@ -1,78 +1,11 @@
-# Farcaster Frames - Next.js Examples
 
-## 👀 Watch the [YouTube tutorial](https://youtu.be/g_pkATT8pYU?si=8KwGSzJ_nxWHx-k3)
+# Project Title
 
-### 🖥️ [Live Demo](https://frames-gilt.vercel.app/basic)
+FrameCoiner-  create gasless trading accounts and perform trades in single click using FRAMES !!!!!!!!!!
 
-Paste the live demo url into https://warpcast.com/~/developers/frames to validate the frame.
+## Description
 
-## Getting Started
+FrameCoiner enables creating interactive frames which allow trading various tokens through dexes.  This enables seamless user experience and that too in a single click. the traded token are sent back to the connected wallet address and also enables cross-chain gasless experience. Feature such as limit orders can also be easliy integrated to give an e2e experience 
+## How It's made
 
-Clone the repo and install dependencies
-
-```bash
-# Clone the repo
-git clone https://github.com/ChangoMan/frames.git
-
-# Enter the new directory
-cd frames
-
-# Install dependencies
-npm install
-```
-
-Next, create a `.env.local` file in the root of your project (you can copy from `.env.example`) and set the `NEXT_PUBLIC_SITE_URL` variable to your site's public URL:
-
-If your website is not deployed, you may not have a public URL just yet.
-
-```
-NEXT_PUBLIC_SITE_URL=https://example.com
-```
-
-Next, run the development server:
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-For the basic frame example, go to [http://localhost:3000/basic](http://localhost:3000/basic)
-
-For the advanced frame example, go to [http://localhost:3000/advanced](http://localhost:3000/advanced)
-
-## Deployment
-
-Since we are building on Next.js, it is recommended to deploy using [Vercel](https://vercel.com/) so you can take advantage of the Open Graph Image Generator in the Advanced example.
-
-Regardless of where you deploy, make sure you set up the `NEXT_PUBLIC_SITE_URL` in the environment variables.
-
-```
-NEXT_PUBLIC_SITE_URL=https://example.com
-```
-
-https://vercel.com/docs/projects/environment-variables
-
-### Resources
-
-Basic Frame example is heavily inspired by [https://github.com/Zizzamia/a-frame-in-100-lines](https://github.com/Zizzamia/a-frame-in-100-lines)
-
-Images are also from the repo mentioned above.
-
-Basic Frame API code was taken from:
-https://www.pinata.cloud/blog/how-to-make-a-frame-on-farcaster-using-ipfs
-
-Official documentation on Farcaster frames:
-https://docs.farcaster.xyz/reference/frames/spec
-
-Warpcast Frames Validator:
-https://warpcast.com/~/developers/frames
-
-Coinbase onchainkit for local frame testing:
-https://github.com/coinbase/onchainkit
-
-Generate Open Graph images dynamically:
-https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx
-
-Join Warpcast to see frames in action:
-https://warpcast.com/~/invite-page/341454?id=497d9b60
+FrameCoiner Stack enables this experience by leveraging the swap and limit order apis from Matcha/0x. the users create a trading account linked to their farcaster wallet which can be securely stored in one of the multiple storage providers such as passkeys, privy or self-managed. the stack then handles the e2e lifecycle of creating the order, validating it and the executing it on chain via the inbuilt relayer stack, which submits the transactions on users behalf and transfers back the traded tokens to the farcaster wallet and hence user has custody of the trader funds, while getting the best prices from the aggreagator and a gasless experience. All from FRAMES !!!!
